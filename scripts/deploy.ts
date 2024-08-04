@@ -1,7 +1,9 @@
 import { ethers } from "hardhat";
 
 async function main() {
-  const checkBesu = await ethers.deployContract("CheckBesu");
+  const checkBesu = await ethers.deployContract("CheckBesu", [
+    "0xd2C94252d9a182FBEd2b0596F07778470F2D2833",
+  ]);
   await checkBesu.waitForDeployment();
   console.log(`Deployed to ${checkBesu.target}`);
 }
